@@ -16,11 +16,14 @@ export class MoviesDetailPage implements OnInit {
   constructor(private route: ActivatedRoute, private movieService: MovieService) { }
 
   ngOnInit() {
-    const id = this.route.snapshot.paramMap.get('id')
+    const id = this.route.snapshot.paramMap.get('id');
     this.movieService.getMovieDetails(id).subscribe((res) =>{
-      console.log(res);
       this.movie = res;
+      console.log(res);
     })
   }
 
+  openHomePage(){
+    window.open(this.movie.homepage)
+  }
 }
