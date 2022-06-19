@@ -36,6 +36,10 @@ export class MoviesPage implements OnInit {
       console.log(res)
 
       event?.target.complete();
+      //disable InfiniteScrollCustomEvent
+      if(event){
+        event.target.disabled = res.total_pages === this.currentPage;
+      }
     })
 
   }
