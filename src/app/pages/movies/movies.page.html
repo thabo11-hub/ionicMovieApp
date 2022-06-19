@@ -1,9 +1,24 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>movies</ion-title>
+    <ion-title>Trending Movies</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <ion-list>
+    <ion-item button *ngFor="let item of movies">
+      <!-- circle image at start -->
+      <ion-avatar slot="start">
+        <img [src]="imageBaseUrl + '/w92' + item.poster_path">
+      </ion-avatar>
 
+      <ion-label>
+        <!-- get title and date -->
+        {{item.title}}
+        <p>{{item.release_date | date: 'y'}}</p>
+      </ion-label>
+
+
+    </ion-item>
+  </ion-list>
 </ion-content>
